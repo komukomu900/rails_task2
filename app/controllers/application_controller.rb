@@ -6,5 +6,6 @@ class ApplicationController < ActionController::Base
     if @current_user == nil
       flash[:notice] = t('ログインが必要です')
       redirect_to new_session_path
+    end
   end
 end
