@@ -1,0 +1,8 @@
+<% if flash[:notice] %>
+  <div>
+    <p><%= flash[:notice] %><p>
+  </div>
+<% end %>
+<h3><%= @user.name %>のページ</h3>
+<p>メールアドレス： <%= @user.email %></p>
+<p><%= link_to "ユーザ削除", user_path(@user.id), method: :delete %></p>
