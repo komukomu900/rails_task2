@@ -10,7 +10,10 @@
   </head>
   <body>
     <header>
-      <p>FacebookCloneだよ。cloneだよ。</p>
+      <h1>FacebookClone</h1>
+      <% if logged_in? %>
+        <div>ログイン中のユーザ：<%= current_user.name %></div>
+      <% end %>
     </header>
     <%= yield %>
     <footer>
