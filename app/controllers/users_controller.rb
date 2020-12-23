@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:name, :email, :password))
+    @user = User.new(set_params)
     if @user.save
       redirect_to user_path(@user.id), notice: "登録できました"
     else
@@ -21,4 +21,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  private
+  def set_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 end

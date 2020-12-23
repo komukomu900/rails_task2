@@ -15,13 +15,9 @@
       <li>投稿者:<%= blog.user.name %></li>
     </div>
     <div>
-      <li><%= link_to '詳細', blog_path(blog.id) %></li>
-    </div>
-    <div>
-      <li><%= link_to "編集", edit_blog_path(blog.id) %></li>
-    </div>
-    <div>
-      <li><%= link_to "削除", blog_path(blog.id), method: :delete, data:{confirm: '本当に削除しますか？'} %></li>
+      <%= link_to '詳細', blog_path(blog.id) %>
+      <%= link_to "編集", edit_blog_path(blog.id) %>
+      <%= link_to "削除", blog_path(blog.id), method: :delete, data:{confirm: '本当に削除しますか？'} %>
     </div>
   </ul>
 <% end %>

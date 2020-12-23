@@ -4,8 +4,8 @@
   <%= f.hidden_field :content %>
   <p>タイトル:<%= @blog.title %></p>
   <p>投稿文:<%= @blog.content %></p>
-  <p>投稿画像:<%= image_tag(@blog.image.url) if @blgo.image && @blog.image.url %></p>
+  <p>投稿画像:<%= image_tag(@blog.image.url) if @blog.image && @blog.image.url %></p>
   <%= f.hidden_field :image_cache %>
   <%= f.submit "投稿する" %>
-  <%= f.submit "一覧へ", name: 'back' %>
+  <%= f.submit "戻る", name: 'back' %>
 <% end %>

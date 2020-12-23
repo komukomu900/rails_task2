@@ -11,27 +11,23 @@
   <body>
     <header>
       <h1>FacebookClone</h1>
-      <% if logged_in? %>
-        <div>ログイン中のユーザ：<%= current_user.name %></div>
-      <% end %>
-    </header>
-    <%= yield %>
-    <footer>
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "#{key}") %>
       <% end %>
       <% if logged_in? %>
-      <ul>
-        <li><%= link_to "ユーザ詳細", user_path(current_user.id) %></li>
-        <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
-        <li><%= link_to "投稿一覧", blogs_path %></li>
-      </ul>
+        <div>ログイン中のユーザ：<%= current_user.name %></div>
+        <div><%= link_to "ユーザ詳細", user_path(current_user.id) %>
+             <%= link_to "投稿一覧", blogs_path %></div>
+        <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
       <% else %>
-      <ul>
-        <li><%= link_to "ユーザ登録", new_user_path %></li>
-        <li><%= link_to "ログイン", new_session_path %></li>
-      </ul>
+        <ul>
+          <li><%= link_to "ユーザ登録", new_user_path %></li>
+          <li><%= link_to "ログイン", new_session_path %></li>
+        </ul>
       <% end %>
+    </header>
+    <%= yield %>
+    <footer>
       <p>Rails課題だよ</p>
     </footer>
   </body>
